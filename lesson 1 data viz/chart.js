@@ -3,7 +3,7 @@ console.log("Hello world");
 async function drawLineChart() {
 	console.log("drawLineChart");
 	const data = await d3.json("./my_weather_data.json");
-	//console.log(data);
+	
 
 	const dateParser = d3.timeParse("%Y-%m-%d");
 
