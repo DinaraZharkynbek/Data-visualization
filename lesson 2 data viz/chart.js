@@ -1,8 +1,8 @@
 async function drawLineChart() {
-  // 1. Access data
+ 
   let data = await d3.json('my_weather_data.json');
 
-  //console.table(dataset[0]);
+  
 
   const yAccessor = (d) => d.temperatureMax;
 
@@ -11,7 +11,7 @@ async function drawLineChart() {
   const dateParser = d3.timeParse('%Y-%m-%d');
   const xAccessor = (d) => dateParser(d.date);
 
-// median
+
   const medianVal = d3.median(data, yAccessor);
   const medianVal2 = d3.median(data, yAccessor2);
 
@@ -21,7 +21,6 @@ async function drawLineChart() {
   console.log(medianVal);
   console.log(medianVal2);
 
-  // 2. Create chart dimensions
 
   let dimensions = {
     width: window.innerWidth * 0.9,
@@ -36,7 +35,7 @@ async function drawLineChart() {
   dimensions.boundedWidth = dimensions.width - dimensions.margin.left - dimensions.margin.right;
   dimensions.boundedHeight = dimensions.height - dimensions.margin.top - dimensions.margin.bottom;
 
-  // 3. Draw canvas
+
 
   const wrapper = d3
     .select('#wrapper')
@@ -48,7 +47,7 @@ async function drawLineChart() {
     .append('g')
     .style('transform', `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`);
 
-  // // 4. Create scales
+  
 
   const yScale = d3
     .scaleLinear()
@@ -57,7 +56,7 @@ async function drawLineChart() {
 
   console.log(yScale(32));
 
-  // console.log(d3.extent(dataset, yAccessor));
+  
 
   const freezingTemperaturePlacement = yScale(32);
   const freezingTemperatures = bounds
